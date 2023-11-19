@@ -1,5 +1,6 @@
 from random import randint
 import turtle
+from PIL import Image
 
 class Point:
 
@@ -70,3 +71,8 @@ myturtle = turtle.Turtle()
 rectangle.draw(canvas = myturtle)
 user_point.draw(canvas = myturtle)
 turtle.done
+
+canvas = turtle.getcanvas()
+canvas.postscript(file="drawing.eps")  # save canvas as EPS 
+img = Image.open("drawing.eps")  # use PIL to open EPS file
+img.save("drawing.png", "png")  # save as PNG 
